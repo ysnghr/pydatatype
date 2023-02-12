@@ -1,0 +1,2 @@
+class GeneralTree:
+    pass
