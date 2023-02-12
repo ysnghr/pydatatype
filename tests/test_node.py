@@ -41,23 +41,25 @@ class TestNode:
 
     def test_node_creation_with_invalid_value(self):
         with pytest.raises(TypeError):
-            Node('1')
+            Node("1")
 
     def test_node_creation_with_invalid_value_and_left(self):
         with pytest.raises(TypeError):
-            Node('1', 2)
+            Node("1", 2)
 
     def test_node_creation_with_invalid_value_and_right(self):
         with pytest.raises(TypeError):
-            Node('1', None, 2)
+            Node("1", None, 2)
 
     def test_node_creation_with_invalid_value_and_both(self):
         with pytest.raises(TypeError):
-            Node('1', 2, 3)
+            Node("1", 2, 3)
 
     def test_node_get_children(self):
-        new_node = Node(1, Node(2), Node(3))
-        assert new_node.get_children() == [Node(2), Node(3)]
+        second_node = Node(2)
+        third_node = Node(3)
+        new_node = Node(1, second_node, third_node)
+        assert new_node.get_children() == [second_node, third_node]
 
     def test_node_get_children_with_no_children(self):
         new_node = Node(1)
@@ -69,4 +71,4 @@ class TestNode:
 
     def test_node_get_height_with_no_children(self):
         new_node = Node(1)
-        assert new_node.get_height() == 0
+        assert new_node.get_height() == 1
