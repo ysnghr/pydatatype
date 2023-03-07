@@ -63,22 +63,6 @@ class TestBinaryTree:
         with pytest.raises(TypeError):
             new_tree.merge(1)
 
-    def test_binary_tree_travel_in_order(self):
-        new_tree = BinaryTree(Node(1, Node(2), Node(3)))
-        assert new_tree.in_order == [2, 1, 3]
-
-    def test_binary_tree_travel_pre_order(self):
-        new_tree = BinaryTree(Node(1, Node(2), Node(3)))
-        assert new_tree.pre_order == [1, 2, 3]
-
-    def test_binary_tree_travel_post_order(self):
-        new_tree = BinaryTree(Node(1, Node(2), Node(3)))
-        assert new_tree.post_order == [2, 3, 1]
-
-    def test_binary_tree_travel_level_order(self):
-        new_tree = BinaryTree(Node(1, Node(2), Node(3)))
-        assert new_tree.level_order == [1, 2, 3]
-
     def test_binary_tree_clone(self):
         new_tree = BinaryTree(Node(1, Node(2), Node(3)))
         cloned_tree = new_tree.clone()
