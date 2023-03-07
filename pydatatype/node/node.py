@@ -4,6 +4,9 @@ This module provides a Node class for use in tree data structures.
 
 from collections import deque
 from typing import Union
+from typing import TypeVar
+
+T = TypeVar("T")
 
 
 class Node:
@@ -27,15 +30,10 @@ class Node:
 
     def __init__(
         self,
-        value: int,
+        value: T,
         left: Union["Node", None] = None,
         right: Union["Node", None] = None,
     ):
-        if value is not None and not isinstance(value, int):
-            raise TypeError(
-                "The argument 'value' must be of \
-                            type 'int'"
-            )
         if left is not None and not isinstance(left, Node):
             raise TypeError(
                 "The argument 'left' must be of \

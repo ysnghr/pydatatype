@@ -39,10 +39,6 @@ class TestNode:
         with pytest.raises(TypeError):
             Node(1, 2, 3)
 
-    def test_node_creation_with_invalid_value(self):
-        with pytest.raises(TypeError):
-            Node("1")
-
     def test_node_creation_with_invalid_value_and_left(self):
         with pytest.raises(TypeError):
             Node("1", 2)
