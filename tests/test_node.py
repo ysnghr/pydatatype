@@ -59,11 +59,11 @@ class TestNode:
         second_node = Node(2)
         third_node = Node(3)
         new_node = Node(1, second_node, third_node)
-        assert new_node.get_children() == [second_node, third_node]
+        assert new_node.children == [second_node, third_node]
 
     def test_node_get_children_with_no_children(self):
         new_node = Node(1)
-        assert new_node.get_children() == []
+        assert new_node.children == []
 
     def test_node_get_height(self):
         new_node = Node(1, Node(2), Node(3))
@@ -95,24 +95,24 @@ class TestNode:
 
     def test_node_insert_left(self):
         new_node = Node(1, Node(2), Node(3))
-        new_node.insert_left(4)
+        new_node.insert_left(Node(4))
         assert new_node.left.value == 4
         assert new_node.left.left.value == 2
 
     def test_node_insert_left_with_no_left(self):
         new_node = Node(1, None, Node(3))
-        new_node.insert_left(4)
+        new_node.insert_left(Node(4))
         assert new_node.left.value == 4
         assert new_node.left.left is None
 
     def test_node_insert_right(self):
         new_node = Node(1, Node(2), Node(3))
-        new_node.insert_right(4)
+        new_node.insert_right(Node(4))
         assert new_node.right.value == 4
         assert new_node.right.right.value == 3
 
     def test_node_insert_right_with_no_right(self):
         new_node = Node(1, Node(2), None)
-        new_node.insert_right(4)
+        new_node.insert_right(Node(4))
         assert new_node.right.value == 4
         assert new_node.right.right is None
