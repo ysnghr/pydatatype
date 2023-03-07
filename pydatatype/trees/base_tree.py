@@ -25,16 +25,16 @@ class Tree(ABC):
         pass
 
     def preorder(self):
-        return PreOrderIterator(self.root)
+        return PreOrderIterator(self)
 
     def inorder(self):
-        return InOrderIterator(self.root)
+        return InOrderIterator(self)
 
     def postorder(self):
-        return PostOrderIterator(self.root)
+        return PostOrderIterator(self)
 
     def levelorder(self):
-        return LevelOrderIterator(self.root)
+        return LevelOrderIterator(self)
 
     @abstractmethod
     def get_height(self):

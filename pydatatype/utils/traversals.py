@@ -2,9 +2,10 @@ from collections import deque
 
 
 class PreOrderIterator:
-    def __init__(self, root):
+    def __init__(self, tree):
         self.stack = []
-        self.stack.append(root)
+        if tree.root is not None:
+            self.stack.append(tree.root)
 
     def __iter__(self):
         return self
@@ -17,12 +18,14 @@ class PreOrderIterator:
             self.stack.append(node.right)
         if node.left:
             self.stack.append(node.left)
-        return node
+        return node.value
 
 
 class PostOrderIterator:
-    def __init__(self, root):
-        self.stack = [(root, False)]
+    def __init__(self, tree):
+        self.stack = []
+        if tree.root is not None:
+            self.stack.append((tree.root, False))
 
     def __iter__(self):
         return self
@@ -31,7 +34,7 @@ class PostOrderIterator:
         while self.stack:
             node, visited = self.stack.pop()
             if visited:
-                return node
+                return node.value
             else:
                 self.stack.append((node, True))
                 if node.right:
@@ -42,9 +45,9 @@ class PostOrderIterator:
 
 
 class InOrderIterator:
-    def __init__(self, root):
+    def __init__(self, tree):
         self.stack = []
-        self.current = root
+        self.current = tree.root
 
     def __iter__(self):
         return self
@@ -58,15 +61,16 @@ class InOrderIterator:
             self.current = self.stack.pop()
             node = self.current
             self.current = self.current.right
-            return node
+            return node.value
         else:
             raise StopIteration
 
 
 class LevelOrderIterator:
-    def __init__(self, root):
+    def __init__(self, tree):
         self.queue = deque()
-        self.queue.append(root)
+        if tree.root is not None:
+            self.queue.append(tree.root)
 
     def __iter__(self):
         return self
@@ -79,4 +83,4 @@ class LevelOrderIterator:
             self.queue.append(node.left)
         if node.right:
             self.queue.append(node.right)
-        return node
+        return node.value
