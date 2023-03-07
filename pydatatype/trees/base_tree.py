@@ -1,5 +1,11 @@
 from abc import ABC, abstractmethod, abstractproperty
 from pydatatype.node import Node
+from pydatatype.utils.traversals import (
+    PreOrderIterator,
+    InOrderIterator,
+    PostOrderIterator,
+    LevelOrderIterator,
+)
 from typing import Optional
 
 
@@ -9,6 +15,26 @@ class Tree(ABC):
             raise TypeError("The argument 'root' must be of type 'Node'")
         self.root = root
         self.size = 0
+
+    @abstractproperty
+    def right(self):
+        pass
+
+    @abstractproperty
+    def left(self):
+        pass
+
+    def preorder(self):
+        return PreOrderIterator(self.root)
+
+    def inorder(self):
+        return InOrderIterator(self.root)
+
+    def postorder(self):
+        return PostOrderIterator(self.root)
+
+    def levelorder(self):
+        return LevelOrderIterator(self.root)
 
     @abstractmethod
     def get_height(self):
@@ -28,22 +54,6 @@ class Tree(ABC):
 
     @abstractmethod
     def delete(self, value):
-        pass
-
-    @abstractmethod
-    def pre_order(self):
-        pass
-
-    @abstractproperty
-    def in_order(self):
-        pass
-
-    @abstractproperty
-    def post_order(self):
-        pass
-
-    @abstractproperty
-    def level_order(self):
         pass
 
     @abstractmethod
