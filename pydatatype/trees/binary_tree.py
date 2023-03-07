@@ -1,10 +1,27 @@
-from .base_tree import Tree
-from pydatatype.node import Node
-from collections import deque
+"""
+This module provides an implementation of a binary tree, a simple tree data
+structure where each node has at most two children.
+
+Binary trees are designed for fast searching and traversal, and can be used
+to implement more complex data structures like binary search trees and heaps.
+"""
+
 import copy
+from collections import deque
+from ..node import Node
+from .base_tree import Tree
 
 
 class BinaryTree(Tree):
+    """
+    A simple binary tree implementation.
+
+    A binary tree is a tree data structure where each node has at most two
+    children, referred to as the left and right children. Binary trees can
+    be used to implement more complex data structures like binary search
+    trees and heaps, and are designed for fast searching and traversal.
+    """
+
     @property
     def right(self):
         return self.root.right
@@ -21,25 +38,22 @@ class BinaryTree(Tree):
 
             # Do level order traversal until we find
             # an empty place.
-            while len(levels):
+            while len(levels) > 0:
                 temp = levels[0]
                 levels.pop(0)
                 if not temp.left:
                     temp.left = node
                     break
-                else:
-                    levels.append(temp.left)
+                levels.append(temp.left)
                 if not temp.right:
                     temp.right = node
                     break
-                else:
-                    levels.append(temp.right)
+                levels.append(temp.right)
 
     def get_height(self):
         if self.root is None:
             return 0
-        else:
-            return self.root.get_height()
+        return self.root.get_height()
 
     def delete_tree(self):
         self.root = None
@@ -80,9 +94,7 @@ class BinaryTree(Tree):
         if self.root.left is None and self.root.right is None:
             if self.root.value == value:
                 self.root = None
-                return
-            else:
-                return
+            return
 
         key_node = None
         temp = None

@@ -1,4 +1,9 @@
-from abc import ABC, abstractmethod, abstractproperty
+"""
+This module provides a base class for all tree implementations.
+"""
+
+from typing import Optional
+from abc import ABC, abstractmethod
 from pydatatype.node import Node
 from pydatatype.utils.traversals import (
     PreOrderIterator,
@@ -6,60 +11,93 @@ from pydatatype.utils.traversals import (
     PostOrderIterator,
     LevelOrderIterator,
 )
-from typing import Optional
 
 
 class Tree(ABC):
+    """
+    Abstract base class for all tree implementations.
+    """
+
     def __init__(self, root: Optional[Node] = None):
         if root is not None and not isinstance(root, Node):
             raise TypeError("The argument 'root' must be of type 'Node'")
         self.root = root
         self.size = 0
 
-    @abstractproperty
+    @property
     def right(self):
-        pass
+        """
+        The right subtree of the tree.
+        """
 
-    @abstractproperty
+    @property
     def left(self):
-        pass
+        """
+        The left subtree of the tree.
+        """
 
     def preorder(self):
+        """
+        Returns an iterator that traverses the tree in pre-order.
+        """
         return PreOrderIterator(self)
 
     def inorder(self):
+        """
+        Returns an iterator that traverses the tree in-order.
+        """
         return InOrderIterator(self)
 
     def postorder(self):
+        """
+        Returns an iterator that traverses the tree in post-order.
+        """
         return PostOrderIterator(self)
 
     def levelorder(self):
+        """
+        Returns an iterator that traverses the tree in level-order.
+        """
         return LevelOrderIterator(self)
 
     @abstractmethod
     def get_height(self):
-        pass
+        """
+        Returns the height of the tree.
+        """
 
     @abstractmethod
     def insert(self, node: Node):
-        pass
+        """
+        Inserts a node into the tree.
+        """
 
     @abstractmethod
     def merge(self, tree: "Tree"):
-        pass
+        """
+        Merges the given tree into the current tree.
+        """
 
     @abstractmethod
     def search(self, value):
-        pass
+        """
+        Searches for a node with the given value in the tree.
+        """
 
     @abstractmethod
     def delete(self, value):
-        pass
+        """
+        Deletes a node with the given value from the tree.
+        """
 
     @abstractmethod
     def delete_tree(self):
-        pass
+        """
+        Deletes the entire tree.
+        """
 
     @abstractmethod
     def clone(self):
-        pass
+        """
+        Returns a copy of the tree.
+        """

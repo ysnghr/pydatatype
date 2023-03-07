@@ -1,9 +1,29 @@
+"""
+This module provides a Node class for use in tree data structures.
+"""
+
 from collections import deque
 from typing import Union
 
 
 class Node:
-    """Item in Tree Structured Data"""
+    """A node in a tree data structure.
+
+    A tree node consists of a value and references to its child nodes.
+    If a node has no children, its child references will be None.
+
+    Example Usage:
+    ```
+    node = Node(5)
+    left_child = Node(3)
+    right_child = Node(7)
+    node.left = left_child
+    node.right = right_child
+
+    # or alternatively:
+    node = Node(5, 3, 7)
+    ```
+    """
 
     def __init__(
         self,
@@ -32,6 +52,9 @@ class Node:
 
     @property
     def children(self):
+        """
+        Gets the children of the current node object
+        """
         children = []
         if self.left:
             children.append(self.left)
