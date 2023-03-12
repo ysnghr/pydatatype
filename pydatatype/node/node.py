@@ -92,39 +92,3 @@ class Node:
             height = height + 1
 
         return height
-
-    def insert_right(self, new_node):
-        """
-        Inserts a node to the right of the current node
-        """
-        if self.right is None:
-            self.right = new_node
-        else:
-            node = new_node
-            node.right = self.right
-            self.right = node
-
-    def insert_left(self, new_node):
-        """
-        Inserts a node to the left of the current node
-        """
-        if self.left is None:
-            self.left = new_node
-        else:
-            node = new_node
-            node.left = self.left
-            self.left = node
-
-    def delete_left(self):
-        """
-        Deletes the left node of the current node
-        """
-        if self.left is not None:
-            self.left = None
-
-    def delete_right(self):
-        """
-        Deletes the right node of the current node
-        """
-        if self.right is not None:
-            self.right = None
