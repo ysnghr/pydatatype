@@ -1,5 +1,5 @@
 # pylint: disable=missing-docstring
-from .node import Node  # noqa: F401
+from .nodes import Node  # noqa: F401
 from .trees import BinaryTree  # noqa: F401
 from .trees import BinarySearchTree  # noqa: F401
 from .trees import AVLTree  # noqa: F401

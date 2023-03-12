@@ -4,7 +4,7 @@ This module provides a base class for all tree implementations.
 
 from typing import Optional
 from abc import ABC, abstractmethod
-from pydatatype.node import Node
+from pydatatype.nodes import Node
 from pydatatype.utils.traversals import (
     PreOrderIterator,
     InOrderIterator,

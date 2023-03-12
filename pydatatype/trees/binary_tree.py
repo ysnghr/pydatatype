@@ -8,7 +8,7 @@ to implement more complex data structures like binary search trees and heaps.
 
 import copy
 from collections import deque
-from ..node import BinaryTreeNode as Node
+from ..nodes import BinaryTreeNode as Node
 from .base_tree import Tree
 
 

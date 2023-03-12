@@ -1,5 +1,5 @@
 import pytest
-from pydatatype.node import Node
+from pydatatype.nodes import Node
 
 
 class TestNode:

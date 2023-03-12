@@ -8,7 +8,7 @@ list of data.
 """
 
 from .base_tree import Tree
-from ..node import BSTreeNode as Node
+from ..nodes import BSTreeNode as Node
 
 
 class BinarySearchTree(Tree):

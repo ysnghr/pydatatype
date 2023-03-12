@@ -1,5 +1,5 @@
 from pydatatype.trees import BinarySearchTree
-from pydatatype.node import Node
+from pydatatype.nodes import Node
 
 
 class TestBinarySearchTree:
