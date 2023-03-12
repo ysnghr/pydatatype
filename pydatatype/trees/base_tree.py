@@ -75,7 +75,7 @@ class Tree(ABC):
         return self.root.get_height()
 
     @abstractmethod
-    def insert(self, node: Node):
+    def insert(self, value):
         """
         Inserts a node into the tree.
         """
