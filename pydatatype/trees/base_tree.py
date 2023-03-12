@@ -29,12 +29,18 @@ class Tree(ABC):
         """
         The right subtree of the tree.
         """
+        if self.root is None:
+            return None
+        return self.root.right
 
     @property
     def left(self):
         """
         The left subtree of the tree.
         """
+        if self.root is None:
+            return None
+        return self.root.left
 
     def preorder(self):
         """
@@ -60,11 +66,13 @@ class Tree(ABC):
         """
         return LevelOrderIterator(self)
 
-    @abstractmethod
     def get_height(self):
         """
         Returns the height of the tree.
         """
+        if self.root is None:
+            return 0
+        return self.root.get_height()
 
     @abstractmethod
     def insert(self, node: Node):
