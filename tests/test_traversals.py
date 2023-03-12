@@ -1,5 +1,4 @@
 from pydatatype.trees import BinaryTree
-from pydatatype.node import Node
 from pydatatype.utils.traversals import (
     PreOrderIterator,
     InOrderIterator,
@@ -12,7 +11,7 @@ class TestPreOrderIterator:
     def test_preorder_iterator_from_tree(self):
         new_tree = BinaryTree()
         for value in range(1, 8):
-            new_tree.insert(Node(value))
+            new_tree.insert(value)
         result = []
         for node in new_tree.preorder():
             result.append(node)
@@ -28,7 +27,7 @@ class TestPreOrderIterator:
     def test_preorder_iterator(self):
         new_tree = BinaryTree()
         for value in range(1, 8):
-            new_tree.insert(Node(value))
+            new_tree.insert(value)
         result = []
         for node in PreOrderIterator(new_tree):
             result.append(node)
@@ -39,7 +38,7 @@ class TestInOrderIterator:
     def test_inorder_iterator_from_tree(self):
         new_tree = BinaryTree()
         for value in range(1, 8):
-            new_tree.insert(Node(value))
+            new_tree.insert(value)
         result = []
         for node in new_tree.inorder():
             result.append(node)
@@ -55,7 +54,7 @@ class TestInOrderIterator:
     def test_inorder_iterator(self):
         new_tree = BinaryTree()
         for value in range(1, 8):
-            new_tree.insert(Node(value))
+            new_tree.insert(value)
         result = []
         for node in InOrderIterator(new_tree):
             result.append(node)
@@ -66,7 +65,7 @@ class TestPostOrderIterator:
     def test_postorder_iterator_from_tree(self):
         new_tree = BinaryTree()
         for value in range(1, 8):
-            new_tree.insert(Node(value))
+            new_tree.insert(value)
         result = []
         for node in new_tree.postorder():
             result.append(node)
@@ -82,7 +81,7 @@ class TestPostOrderIterator:
     def test_postorder_iterator(self):
         new_tree = BinaryTree()
         for value in range(1, 8):
-            new_tree.insert(Node(value))
+            new_tree.insert(value)
         result = []
         for node in PostOrderIterator(new_tree):
             result.append(node)
@@ -93,7 +92,7 @@ class TestLevelOrderIterator:
     def test_levelorder_iterator_from_tree(self):
         new_tree = BinaryTree()
         for value in range(1, 8):
-            new_tree.insert(Node(value))
+            new_tree.insert(value)
         result = []
         for node in new_tree.levelorder():
             result.append(node)
@@ -109,7 +108,7 @@ class TestLevelOrderIterator:
     def test_levelorder_iterator(self):
         new_tree = BinaryTree()
         for value in range(1, 8):
-            new_tree.insert(Node(value))
+            new_tree.insert(value)
         result = []
         for node in LevelOrderIterator(new_tree):
             result.append(node)

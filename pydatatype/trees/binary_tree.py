@@ -8,7 +8,7 @@ to implement more complex data structures like binary search trees and heaps.
 
 import copy
 from collections import deque
-from ..node import Node
+from ..node import BinaryTreeNode as Node
 from .base_tree import Tree
 
 
@@ -22,17 +22,9 @@ class BinaryTree(Tree):
     trees and heaps, and are designed for fast searching and traversal.
     """
 
-    @property
-    def right(self):
-        return self.root.right
-
-    @property
-    def left(self):
-        return self.root.left
-
-    def insert(self, node: Node):
+    def insert(self, value):
         if self.root is None:
-            self.root = node
+            self.root = Node(value)
         else:
             levels = [self.root]
 
@@ -42,18 +34,13 @@ class BinaryTree(Tree):
                 temp = levels[0]
                 levels.pop(0)
                 if not temp.left:
-                    temp.left = node
+                    temp.left = Node(value)
                     break
                 levels.append(temp.left)
                 if not temp.right:
-                    temp.right = node
+                    temp.right = Node(value)
                     break
                 levels.append(temp.right)
-
-    def get_height(self):
-        if self.root is None:
-            return 0
-        return self.root.get_height()
 
     def delete_tree(self):
         self.root = None
@@ -66,11 +53,11 @@ class BinaryTree(Tree):
         else:
             self.root = tree.root
 
-    def _merge(self, node, tree):
-        if tree is not None:
-            self._merge(node, tree.left)
-            self._merge(node, tree.right)
-            self.insert(Node(tree.value))
+    def _merge(self, first_node, second_node):
+        if second_node is not None:
+            self._merge(first_node, second_node.left)
+            self._merge(first_node, second_node.right)
+            self.insert(second_node.value)
 
     def clone(self):
         return copy.deepcopy(self)

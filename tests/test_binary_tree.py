@@ -28,13 +28,13 @@ class TestBinaryTree:
 
     def test_binary_tree_insert(self):
         new_tree = BinaryTree()
-        new_tree.insert(Node(1))
+        new_tree.insert(1)
         assert new_tree.root.value == 1
         assert new_tree.get_height() == 1
 
     def test_binary_tree_insert_with_existing_root(self):
         new_tree = BinaryTree(Node(1))
-        new_tree.insert(Node(2))
+        new_tree.insert(2)
         assert new_tree.root.value == 1
         assert new_tree.root.left.value == 2
         assert new_tree.get_height() == 2
