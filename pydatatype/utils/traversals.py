@@ -57,7 +57,7 @@ class PreOrderIterator:
             self.stack.append(node.right)
         if node.left:
             self.stack.append(node.left)
-        return node.value
+        return node
 
 
 class PostOrderIterator:
@@ -108,7 +108,7 @@ class PostOrderIterator:
         while self.stack:
             node, visited = self.stack.pop()
             if visited:
-                return node.value
+                return node
             self.stack.append((node, True))
             if node.right:
                 self.stack.append((node.right, False))
@@ -162,7 +162,7 @@ class InOrderIterator:
             self.current = self.stack.pop()
             node = self.current
             self.current = self.current.right
-            return node.value
+            return node
         raise StopIteration
 
 
@@ -212,4 +212,4 @@ class LevelOrderIterator:
             self.queue.append(node.left)
         if node.right:
             self.queue.append(node.right)
-        return node.value
+        return node

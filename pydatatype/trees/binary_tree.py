@@ -9,6 +9,7 @@ to implement more complex data structures like binary search trees and heaps.
 import copy
 from collections import deque
 from ..nodes import BinaryTreeNode as Node
+from ..utils.traversals import LevelOrderIterator
 from .base_tree import Tree
 
 
@@ -63,16 +64,10 @@ class BinaryTree(Tree):
         return copy.deepcopy(self)
 
     def search(self, value):
-        stack = deque()
-        stack.append(self.root)
-        while stack:
-            curr = stack.pop()
-            if curr.value == value:
+        iterator = LevelOrderIterator(self)
+        for node in iterator:
+            if node.value == value:
                 return True
-            if curr.right is not None:
-                stack.append(curr.right)
-            if curr.left is not None:
-                stack.append(curr.left)
         return False
 
     def delete(self, value):

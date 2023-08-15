@@ -15,7 +15,9 @@ class TestPreOrderIterator:
         result = []
         for node in new_tree.preorder():
             result.append(node)
-        assert result == [1, 2, 4, 5, 3, 6, 7]
+        expected_result = [1, 2, 4, 5, 3, 6, 7]
+        for node in range(len(result)):
+            assert result[node].value == expected_result[node]
 
     def test_preorder_iterator_from_tree_with_no_root(self):
         new_tree = BinaryTree()
@@ -31,7 +33,9 @@ class TestPreOrderIterator:
         result = []
         for node in PreOrderIterator(new_tree):
             result.append(node)
-        assert result == [1, 2, 4, 5, 3, 6, 7]
+        expected_result = [1, 2, 4, 5, 3, 6, 7]
+        for node in range(len(result)):
+            assert result[node].value == expected_result[node]
 
 
 class TestInOrderIterator:
@@ -42,7 +46,9 @@ class TestInOrderIterator:
         result = []
         for node in new_tree.inorder():
             result.append(node)
-        assert result == [4, 2, 5, 1, 6, 3, 7]
+        expected_result = [4, 2, 5, 1, 6, 3, 7]
+        for node in range(len(result)):
+            assert result[node].value == expected_result[node]
 
     def test_inorder_iterator_from_tree_with_no_root(self):
         new_tree = BinaryTree()
@@ -58,7 +64,9 @@ class TestInOrderIterator:
         result = []
         for node in InOrderIterator(new_tree):
             result.append(node)
-        assert result == [4, 2, 5, 1, 6, 3, 7]
+        expected_result = [4, 2, 5, 1, 6, 3, 7]
+        for node in range(len(result)):
+            assert result[node].value == expected_result[node]
 
 
 class TestPostOrderIterator:
@@ -69,7 +77,9 @@ class TestPostOrderIterator:
         result = []
         for node in new_tree.postorder():
             result.append(node)
-        assert result == [4, 5, 2, 6, 7, 3, 1]
+        expected_result = [4, 5, 2, 6, 7, 3, 1]
+        for node in range(len(result)):
+            assert result[node].value == expected_result[node]
 
     def test_postorder_iterator_from_tree_with_no_root(self):
         new_tree = BinaryTree()
@@ -85,7 +95,9 @@ class TestPostOrderIterator:
         result = []
         for node in PostOrderIterator(new_tree):
             result.append(node)
-        assert result == [4, 5, 2, 6, 7, 3, 1]
+        expected_result = [4, 5, 2, 6, 7, 3, 1]
+        for node in range(len(result)):
+            assert result[node].value == expected_result[node]
 
 
 class TestLevelOrderIterator:
@@ -96,7 +108,9 @@ class TestLevelOrderIterator:
         result = []
         for node in new_tree.levelorder():
             result.append(node)
-        assert result == [1, 2, 3, 4, 5, 6, 7]
+        expected_result = [1, 2, 3, 4, 5, 6, 7]
+        for node in range(len(result)):
+            assert result[node].value == expected_result[node]
 
     def test_levelorder_iterator_from_tree_with_no_root(self):
         new_tree = BinaryTree()
@@ -112,4 +126,6 @@ class TestLevelOrderIterator:
         result = []
         for node in LevelOrderIterator(new_tree):
             result.append(node)
-        assert result == [1, 2, 3, 4, 5, 6, 7]
+        expected_result = [1, 2, 3, 4, 5, 6, 7]
+        for node in range(len(result)):
+            assert result[node].value == expected_result[node]
